@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "dongbeiyujie:item/big_sweaty_foot"
+  }
+}

@@ -86,26 +86,26 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
-| DAIP-01 | Phase 2 | Pending |
-| DAIP-02 | Phase 2 | Pending |
-| DAIP-03 | Phase 2 | Pending |
-| DAIP-04 | Phase 2 | Pending |
-| DAIP-05 | Phase 2 | Pending |
-| ENCH-01 | Phase 2 | Pending |
-| ENCH-02 | Phase 2 | Pending |
-| ENCH-03 | Phase 2 | Pending |
-| ENCH-04 | Phase 2 | Pending |
-| FOOT-01 | Phase 3 | Pending |
-| FOOT-02 | Phase 3 | Pending |
-| FOOT-03 | Phase 3 | Pending |
-| FOOT-04 | Phase 3 | Pending |
-| FOOT-05 | Phase 3 | Pending |
-| FOOT-06 | Phase 3 | Pending |
-| FOOT-07 | Phase 3 | Pending |
+| FOUND-01 | Phase 1 | Complete |
+| FOUND-02 | Phase 1 | Complete |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
+| DAIP-01 | Phase 2 | Complete |
+| DAIP-02 | Phase 2 | Complete |
+| DAIP-03 | Phase 2 | Complete |
+| DAIP-04 | Phase 2 | Complete |
+| DAIP-05 | Phase 2 | Complete |
+| ENCH-01 | Phase 2 | Complete |
+| ENCH-02 | Phase 2 | Complete |
+| ENCH-03 | Phase 2 | Complete |
+| ENCH-04 | Phase 2 | Complete |
+| FOOT-01 | Phase 3 | Complete |
+| FOOT-02 | Phase 3 | Complete |
+| FOOT-03 | Phase 3 | Complete |
+| FOOT-04 | Phase 3 | Complete |
+| FOOT-05 | Phase 3 | Complete |
+| FOOT-06 | Phase 3 | Complete |
+| FOOT-07 | Phase 3 | Complete |
 | YUJI-01 | Phase 4 | Pending |
 | YUJI-02 | Phase 4 | Pending |
 | YUJI-03 | Phase 4 | Pending |

@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: ready_to_execute
-last_updated: "2026-06-06T07:20:30.961Z"
+last_updated: "2026-06-06T07:49:58.129Z"
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 7
+  total_plans: 8
   completed_plans: 7
-  percent: 100
+  percent: 88
 ---
 
 # GSD State
@@ -24,7 +24,7 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-06-06)
 
 **Core value:** Players should encounter Dongbei Yujie at night, fight or flee from her Daipai pressure, and obtain Big Sweaty Foot gear that makes the joke mechanically useful.
-**Current focus:** Phase 04 - Entity System
+**Current focus:** Phase 04 — dongbei-yujie-entity
 
 ## Workflow
 

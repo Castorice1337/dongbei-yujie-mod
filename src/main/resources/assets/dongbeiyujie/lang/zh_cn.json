@@ -1,5 +1,15 @@
 {
   "enchantment.dongbeiyujie.daipai": "带派",
   "effect.dongbeiyujie.daipai": "带派威压",
-  "item.dongbeiyujie.big_sweaty_foot": "大汗脚"
+  "item.dongbeiyujie.big_sweaty_foot": "大汗脚",
+  "message.dongbeiyujie.big_sweaty_foot_hit.0": "%s 感受到了大汗脚的香气。",
+  "message.dongbeiyujie.big_sweaty_foot_hit.1": "%s 被带派的气息震慑了。",
+  "message.dongbeiyujie.big_sweaty_foot_hit.2": "%s 闻到了来自大东北的压迫感。",
+  "message.dongbeiyujie.big_sweaty_foot_hit.3": "%s 被大汗脚熏得怀疑人生。",
+  "message.dongbeiyujie.big_sweaty_foot_hit.4": "%s 感受到了东北雨姐的无形压制。",
+  "subtitles.dongbeiyujie.big_sweaty_foot_hit": "大汗脚命中",
+  "tooltip.dongbeiyujie.big_sweaty_foot.flavor": "不是鞋，是来自大东北的压迫感。",
+  "tooltip.dongbeiyujie.big_sweaty_foot.boots": "穿脚上：授予带派 I，并自动获得绑定诅咒。",
+  "entity.dongbeiyujie.dongbei_yujie": "东北雨姐",
+  "item.dongbeiyujie.dongbei_yujie_spawn_egg": "东北雨姐生成蛋"
 }

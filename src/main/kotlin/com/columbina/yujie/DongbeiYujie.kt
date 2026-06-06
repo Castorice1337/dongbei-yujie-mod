@@ -20,6 +20,14 @@ object DongbeiYujie : ModInitializer {
 		DongbeiYujieSounds.register()
 		DongbeiYujieSpawning.register()
 
+		// Configure Daipai interactions for Dongbei Yujie entity
+		com.columbina.yujie.effect.DaipaiStatusEffect.isDongbeiYujie = { entity -> 
+			entity is com.columbina.yujie.entity.DongbeiYujieEntity 
+		}
+		com.columbina.yujie.effect.DaipaiLevelCalculator.specialMinimumProvider = { entity ->
+			if (entity is com.columbina.yujie.entity.DongbeiYujieEntity) 3 else 0
+		}
+
 		logger.info("Dongbei Yujie foundation initialized.")
 	}
 }

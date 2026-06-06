@@ -1,7 +1,7 @@
 package com.columbina.yujie.effect
 
+import com.columbina.yujie.item.BigSweatyFootItem
 import com.columbina.yujie.registry.DongbeiYujieEffects
-import com.columbina.yujie.registry.DongbeiYujieItems
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.LivingEntity
 import net.minecraft.item.ItemStack
@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack
  * 1. Base level from the Daipai Buff amplifier (amplifier + 1 → player-facing level)
  * 2. +1 if Big Sweaty Foot is equipped in the feet slot
  * 3. +1 if Big Sweaty Foot is held in the main hand
- * 4. Daipai enchantment level from relevant Big Sweaty Foot stacks (Plan 03 extension point)
+ * 4. Daipai enchantment level from relevant Big Sweaty Foot stacks
  * 5. A generic special minimum for specific entity types (Phase 4 extension point)
  *
  * Returns 0 when the entity does not have the Daipai Buff.
@@ -94,6 +94,6 @@ object DaipaiLevelCalculator {
 	}
 
 	private fun isBigSweatyFoot(stack: ItemStack): Boolean {
-		return stack.isOf(DongbeiYujieItems.BIG_SWEATY_FOOT)
+		return BigSweatyFootItem.isBigSweatyFoot(stack)
 	}
 }

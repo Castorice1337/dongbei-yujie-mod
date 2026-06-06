@@ -1,6 +1,8 @@
 package com.columbina.yujie.entity
 
+import com.columbina.yujie.registry.DongbeiYujieEffects
 import net.minecraft.entity.EntityType
+import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.ai.goal.ActiveTargetGoal
 import net.minecraft.entity.ai.goal.LookAroundGoal
 import net.minecraft.entity.ai.goal.LookAtEntityGoal
@@ -10,6 +12,7 @@ import net.minecraft.entity.ai.goal.SwimGoal
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal
 import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
+import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.mob.HostileEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.world.World
@@ -28,7 +31,33 @@ class DongbeiYujieEntity(entityType: EntityType<out HostileEntity>, world: World
         this.goalSelector.add(8, LookAroundGoal(this))
 
         this.targetSelector.add(1, RevengeGoal(this))
-        this.targetSelector.add(2, ActiveTargetGoal(this, PlayerEntity::class.java, true))
+        // Target any LivingEntity except players and other Dongbei Yujie entities
+        this.targetSelector.add(2, ActiveTargetGoal(this, LivingEntity::class.java, 10, true, false) { target, _ ->
+            target !is PlayerEntity && target !is DongbeiYujieEntity
+        })
+    }
+
+    override fun setTarget(target: LivingEntity?) {
+        if (target is PlayerEntity || target is DongbeiYujieEntity) {
+            return
+        }
+        super.setTarget(target)
+    }
+
+    override fun tick() {
+        super.tick()
+        if (!this.entityWorld.isClient && !this.hasStatusEffect(DongbeiYujieEffects.DAIPAI_ENTRY)) {
+            this.addStatusEffect(
+                StatusEffectInstance(
+                    DongbeiYujieEffects.DAIPAI_ENTRY,
+                    StatusEffectInstance.INFINITE,
+                    0,
+                    false,
+                    true,
+                    true
+                )
+            )
+        }
     }
 
     companion object {

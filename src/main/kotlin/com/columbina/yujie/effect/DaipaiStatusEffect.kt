@@ -27,54 +27,73 @@ class DaipaiStatusEffect : StatusEffect(
 	}
 
 	override fun canApplyUpdateEffect(duration: Int, amplifier: Int): Boolean {
-		// DAIP-03: Run every 2 seconds (40 ticks)
-		return duration % 40 == 0
+		// Run every tick so we can spawn walking particles
+		return true
 	}
 
 	override fun applyUpdateEffect(world: ServerWorld, entity: LivingEntity, amplifier: Int): Boolean {
 		val finalLevel = DaipaiLevelCalculator.calculateFinalLevel(entity)
 		if (finalLevel <= 0) return true
 
-		val radius = finalLevel * 2.0
-		val damageAmount = finalLevel.toFloat()
-
-		val box = entity.boundingBox.expand(radius)
-
-		// DAIP-04: Find all living entities in range, excluding owner and Yujie
-		val targets = world.getEntitiesByClass(LivingEntity::class.java, box) { target ->
-			target != entity &&
-			target.isAlive &&
-			!target.isSpectator &&
-			!isDongbeiYujie(target)
+		// Spawn heart particles when walking
+		val velocity = entity.velocity
+		val isWalking = (velocity.x * velocity.x + velocity.z * velocity.z) > 0.0001
+		if (isWalking && entity.age % 5 == 0) {
+			world.spawnParticles(
+				net.minecraft.particle.ParticleTypes.HEART,
+				entity.x, entity.y + 0.5, entity.z,
+				1, 0.3, 0.2, 0.3, 0.0
+			)
 		}
 
-		// DAIP-05: Attribute damage to the aura owner
-		val damageSource = if (entity is PlayerEntity) {
-			entity.damageSources.playerAttack(entity)
-		} else {
-			entity.damageSources.mobAttack(entity)
-		}
+		// DAIP-03: Run damage logic every 2 seconds (40 ticks)
+		if (entity.age % 40 == 0) {
+			val radius = finalLevel * 2.0
+			val damageAmount = finalLevel.toFloat()
 
-		val radiusSquared = radius * radius
-		for (target in targets) {
-			if (entity.squaredDistanceTo(target) <= radiusSquared) {
-				target.damage(world, damageSource, damageAmount)
-				
-				// Add vanilla heart particles on damaged targets
-				world.spawnParticles(
-					net.minecraft.particle.ParticleTypes.HEART,
-					target.x, target.y + target.height / 2.0, target.z,
-					2, 0.3, 0.3, 0.3, 0.0
-				)
+			val box = entity.boundingBox.expand(radius)
+
+			// DAIP-04: Find all living entities in range, excluding owner and Yujie
+			val targets = world.getEntitiesByClass(LivingEntity::class.java, box) { target ->
+				target != entity &&
+				target.isAlive &&
+				!target.isSpectator &&
+				!isDongbeiYujie(target)
 			}
-		}
 
-		// Add vanilla green star-like particles (HAPPY_VILLAGER) around the aura owner
-		world.spawnParticles(
-			net.minecraft.particle.ParticleTypes.HAPPY_VILLAGER,
-			entity.x, entity.y + entity.height / 2.0, entity.z,
-			10, radius / 2.0, 0.5, radius / 2.0, 0.0
-		)
+			// DAIP-05: Attribute damage to the aura owner
+			val damageSource = if (entity is PlayerEntity) {
+				entity.damageSources.playerAttack(entity)
+			} else {
+				entity.damageSources.mobAttack(entity)
+			}
+
+			val radiusSquared = radius * radius
+			for (target in targets) {
+				if (entity.squaredDistanceTo(target) <= radiusSquared) {
+					target.damage(world, damageSource, damageAmount)
+					
+					// Particle feedback on hit: sculk charge and large smoke
+					world.spawnParticles(
+						net.minecraft.particle.SculkChargeParticleEffect(0f),
+						target.x, target.y + target.height / 2.0, target.z,
+						15, 0.4, 0.4, 0.4, 0.05
+					)
+					world.spawnParticles(
+						net.minecraft.particle.ParticleTypes.LARGE_SMOKE,
+						target.x, target.y + target.height / 2.0, target.z,
+						10, 0.4, 0.4, 0.4, 0.02
+					)
+				}
+			}
+
+			// Add vanilla green star-like particles (HAPPY_VILLAGER) around the aura owner
+			world.spawnParticles(
+				net.minecraft.particle.ParticleTypes.HAPPY_VILLAGER,
+				entity.x, entity.y + entity.height / 2.0, entity.z,
+				10, radius / 2.0, 0.5, radius / 2.0, 0.0
+			)
+		}
 
 		return true
 	}

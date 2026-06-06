@@ -2,16 +2,17 @@
 	"schemaVersion": 1,
 	"id": "dongbeiyujie",
 	"version": "${version}",
-	"name": "DongbeiYujie",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "东北雨姐趣味模组",
+	"description": "Dongbei Yujie Funny Mod turns the Dongbei Yujie meme concept into a playable Fabric joke mod with public-release-safe resources.",
 	"authors": [
-		"Me!"
+		"Castorice1337"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"email": "ilovecastoriceforever@gmail.com",
+		"homepage": "bilibili@MyColumbina",
+		"sources": "https://github.com/Castorice1337/dongbei-yujie-mod.git"
 	},
-	"license": "CC0-1.0",
+	"license": "GPL-3.0-only",
 	"icon": "assets/dongbeiyujie/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -20,32 +21,13 @@
 				"value": "com.columbina.yujie.DongbeiYujie",
 				"adapter": "kotlin"
 			}
-		],
-		"client": [
-			{
-				"value": "com.columbina.yujie.client.DongbeiYujieClient",
-				"adapter": "kotlin"
-			}
-		],
-		"fabric-datagen": [
-			{
-				"value": "com.columbina.yujie.client.DongbeiYujieDataGenerator",
-				"adapter": "kotlin"
-			}
 		]
 	},
-	"mixins": [
-		"dongbeiyujie.mixins.json",
-		{
-			"config": "dongbeiyujie.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
 		"fabricloader": ">=0.19.3",
 		"minecraft": "~1.21.11",
 		"java": ">=21",
-		"fabric-api": "*",
-		"fabric-language-kotlin": "*"
+		"fabric-api": ">=0.141.4+1.21.11",
+		"fabric-language-kotlin": ">=1.13.12+kotlin.2.4.0"
 	}
 }

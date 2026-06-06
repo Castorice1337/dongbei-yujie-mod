@@ -21,11 +21,25 @@ import net.minecraft.item.ItemStack
 object DaipaiLevelCalculator {
 
 	/**
-	 * Extension point for Daipai enchantment level lookup.
-	 * Plan 03 will replace this with actual enchantment level extraction.
+	 * Implementation of Daipai enchantment level lookup.
 	 * Returns the total enchantment bonus from the given Big Sweaty Foot stacks.
 	 */
-	var enchantmentLevelProvider: (stacks: List<ItemStack>) -> Int = { _ -> 0 }
+	var enchantmentLevelProvider: (entity: LivingEntity, stacks: List<ItemStack>) -> Int = { entity, stacks ->
+		val registryManager = entity.registryManager
+		val enchantmentRegistry = registryManager.getOptional(net.minecraft.registry.RegistryKeys.ENCHANTMENT)
+		
+		var total = 0
+		if (enchantmentRegistry.isPresent) {
+			val daipaiEntryOpt = enchantmentRegistry.get().getEntry(com.columbina.yujie.registry.DongbeiYujieEnchantments.DAIPAI_KEY.value)
+			if (daipaiEntryOpt.isPresent) {
+				val daipaiEntry = daipaiEntryOpt.get()
+				for (stack in stacks) {
+					total += net.minecraft.enchantment.EnchantmentHelper.getLevel(daipaiEntry, stack)
+				}
+			}
+		}
+		total
+	}
 
 	/**
 	 * Extension point for entity-specific special minimum Daipai level.
@@ -68,7 +82,7 @@ object DaipaiLevelCalculator {
 		}
 
 		// D-14: Enchantment bonus from Daipai enchantment on Big Sweaty Foot stacks
-		val enchantmentBonus = enchantmentLevelProvider(bigSweatyFootStacks)
+		val enchantmentBonus = enchantmentLevelProvider(entity, bigSweatyFootStacks)
 
 		// Calculate total from Buff, equipment, and enchantment
 		val calculatedLevel = baseLevel + feetBonus + mainHandBonus + enchantmentBonus

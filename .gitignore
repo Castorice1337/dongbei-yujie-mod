@@ -24,6 +24,16 @@ bin/
 .classpath
 .project
 
+# local ai agents
+
+AGENTS.md
+.agents/
+.claude/
+.codex/
+.cursor/
+*prompt*.md
+*profile*.md
+
 # macos
 
 *.DS_Store

@@ -1,0 +1,22 @@
+{
+  "description": {
+    "translate": "enchantment.dongbeiyujie.daipai"
+  },
+  "supported_items": "dongbeiyujie:big_sweaty_foot",
+  "primary_items": "dongbeiyujie:big_sweaty_foot",
+  "weight": 5,
+  "max_level": 5,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "max_cost": {
+    "base": 15,
+    "per_level_above_first": 10
+  },
+  "anvil_cost": 2,
+  "slots": [
+    "mainhand",
+    "feet"
+  ]
+}

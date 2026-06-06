@@ -59,8 +59,22 @@ class DaipaiStatusEffect : StatusEffect(
 		for (target in targets) {
 			if (entity.squaredDistanceTo(target) <= radiusSquared) {
 				target.damage(world, damageSource, damageAmount)
+				
+				// Add vanilla heart particles on damaged targets
+				world.spawnParticles(
+					net.minecraft.particle.ParticleTypes.HEART,
+					target.x, target.y + target.height / 2.0, target.z,
+					2, 0.3, 0.3, 0.3, 0.0
+				)
 			}
 		}
+
+		// Add vanilla green star-like particles (HAPPY_VILLAGER) around the aura owner
+		world.spawnParticles(
+			net.minecraft.particle.ParticleTypes.HAPPY_VILLAGER,
+			entity.x, entity.y + entity.height / 2.0, entity.z,
+			10, radius / 2.0, 0.5, radius / 2.0, 0.0
+		)
 
 		return true
 	}

@@ -16,16 +16,16 @@ Players should encounter Dongbei Yujie at night, fight or flee from her Daipai p
 
 - ✓ Fabric/Kotlin 1.21.11 mod skeleton exists with main, client, and datagen entrypoints — existing codebase
 - ✓ Codebase map exists in `.planning/codebase/` — existing GSD setup
+- ✓ Register the mod's real metadata, registry structure, resource namespace, and datagen conventions. — Phase 1
+- ✓ Implement the Daipai status effect with unified final-level calculation. — Phase 2
+- ✓ Implement Daipai range damage that can affect players and non-player living entities while excluding the source and Dongbei Yujie entities. — Phase 2
+- ✓ Implement the Daipai enchantment for Big Sweaty Foot with levels I through V. — Phase 2
+- ✓ Implement Big Sweaty Foot as an unbreakable weapon and boot item with the requested combat, armor, curse, enchantment, and chat behavior. — Phase 3
+- ✓ Implement Dongbei Yujie as a transparent PNG billboard entity that tracks and attacks players. — Phase 4
+- ✓ Implement controlled night spawning near players, spawn egg creation, and Big Sweaty Foot drops. — Phase 4
 
 ### Active
 
-- [ ] Register the mod's real metadata, registry structure, resource namespace, and datagen conventions.
-- [ ] Implement the Daipai status effect with unified final-level calculation.
-- [ ] Implement Daipai range damage that can affect players and non-player living entities while excluding the source and Dongbei Yujie entities.
-- [ ] Implement the Daipai enchantment for Big Sweaty Foot with levels I through V.
-- [ ] Implement Big Sweaty Foot as an unbreakable weapon and boot item with the requested combat, armor, curse, enchantment, and chat behavior.
-- [ ] Implement Dongbei Yujie as a transparent PNG billboard entity that tracks and attacks players.
-- [ ] Implement controlled night spawning near players, spawn egg creation, and Big Sweaty Foot drops.
 - [ ] Register placeholder sound events and later replace placeholders with public-release-safe resources.
 - [ ] Implement BGM behavior in the resource phase: play while at least one Yujie exists, stop when none remain, and never stack multiple copies.
 
@@ -57,14 +57,16 @@ Players should encounter Dongbei Yujie at night, fight or flee from her Daipai p
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| V1 targets the core gameplay loop first | Entity, item, Buff, enchantment, drops, and placeholder sounds make the mod playable before polishing resources | - Pending |
-| Dongbei Yujie renders as a camera-facing PNG billboard | Matches the requested paper-person style without a complex 3D model | - Pending |
-| Daipai damage can affect players | The user wants the effect to be a dangerous joke mechanic, not only a mob-control aura | - Pending |
-| Daipai excludes the source and Dongbei Yujie entities | Prevents self-damage and Yujie-vs-Yujie attrition from undermining spawning and encounters | - Pending |
-| Big Sweaty Foot hit messages are attacker-only | Preserves the joke while preventing public chat spam | - Pending |
+| V1 targets the core gameplay loop first | Entity, item, Buff, enchantment, drops, and placeholder sounds make the mod playable before polishing resources | - Completed |
+| Dongbei Yujie renders as a camera-facing PNG billboard | Matches the requested paper-person style without a complex 3D model | - Completed |
+| Daipai damage can affect players | The user wants the effect to be a dangerous joke mechanic, not only a mob-control aura | - Completed |
+| Daipai excludes the source and Dongbei Yujie entities | Prevents self-damage and Yujie-vs-Yujie attrition from undermining spawning and encounters | - Completed |
+| Big Sweaty Foot hit messages are attacker-only | Preserves the joke while preventing public chat spam | - Completed |
 | BGM plays while any Yujie exists and does not stack | Gives Yujie presence without all-world looping or multi-entity audio chaos | - Pending |
 | Final resources are handled last and must be licensed/original/user-supplied | Keeps the mod public-release-safe | - Pending |
-| No full config system in v1 | Constants are enough for the first complete loop; config can be a later milestone | - Pending |
+| No full config system in v1 | Constants are enough for the first complete loop; config can be a later milestone | - Completed |
+| Hostility AI excludes players and other Yujies | Keeps player encounters focused on the Daipai aura pressure and avoids Yujie-vs-Yujie fights | - Completed |
+| Dongbei Yujie has default Daipai status effect | Ensures she naturally emits the Daipai aura at level III | - Completed |
 
 ## Evolution
 
@@ -84,4 +86,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state.
 
 ---
-*Last updated: 2026-06-06 after initialization*
+*Last updated: 2026-06-06 after Phase 4*

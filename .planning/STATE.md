@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-last_updated: "2026-06-06T00:06:25.471Z"
+status: ready_to_plan
+last_updated: "2026-06-06T00:07:20.542Z"
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
   completed_plans: 0
-  percent: 0
+  percent: 20
 ---
 
 # GSD State
@@ -24,7 +24,7 @@ progress:
 See: `.planning/PROJECT.md` (updated 2026-06-06)
 
 **Core value:** Players should encounter Dongbei Yujie at night, fight or flee from her Daipai pressure, and obtain Big Sweaty Foot gear that makes the joke mechanically useful.
-**Current focus:** Phase 1: Project Foundation and Registries
+**Current focus:** Phase 02 - Daipai Core System
 
 ## Workflow
 
@@ -42,7 +42,7 @@ See: `.planning/PROJECT.md` (updated 2026-06-06)
 
 | Phase | Status | Goal |
 |-------|--------|------|
-| 1 | Pending | Replace example-mod scaffolding with real mod identity and registry/resource structure. |
+| 1 | Complete | Replace example-mod scaffolding with real mod identity and registry/resource structure. |
 | 2 | Pending | Implement the status effect, final-level calculation, periodic damage, and Daipai enchantment. |
 | 3 | Pending | Implement the dual weapon/boots item, combat behavior, enchantment compatibility, and wearer bonuses. |
 | 4 | Pending | Implement the hostile paper-standee entity, AI, spawning, spawn egg, drops, and client billboard rendering. |
@@ -51,12 +51,12 @@ See: `.planning/PROJECT.md` (updated 2026-06-06)
 ## Known Context
 
 - Existing codebase map is available under `.planning/codebase/`.
-- Current source is still mostly Fabric example scaffold.
-- The next GSD command should start Phase 1 context gathering.
+- Phase 1 replaced the Fabric example metadata/mixin scaffolding and added shared registry plus client/datagen anchors.
+- The next GSD command should start Phase 2 context gathering for Daipai effect, level calculation, periodic damage, and Daipai enchantment.
 
 ## Next Step
 
-Run `$gsd-discuss-phase 1` to gather implementation context for Phase 1, or `$gsd-plan-phase 1` to plan directly.
+Run `$gsd-discuss-phase 2` to gather implementation context for Phase 2, or `$gsd-plan-phase 2` to plan directly.
 
 ---
 *State initialized: 2026-06-06*

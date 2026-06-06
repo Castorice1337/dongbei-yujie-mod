@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: ready_to_plan
-last_updated: "2026-06-06T00:07:20.542Z"
+status: ready_to_execute
+last_updated: "2026-06-06T01:37:14.979Z"
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 0
-  percent: 20
+  total_plans: 6
+  completed_plans: 3
+  percent: 50
 ---
 
 # GSD State
@@ -43,7 +43,7 @@ See: `.planning/PROJECT.md` (updated 2026-06-06)
 | Phase | Status | Goal |
 |-------|--------|------|
 | 1 | Complete | Replace example-mod scaffolding with real mod identity and registry/resource structure. |
-| 2 | Pending | Implement the status effect, final-level calculation, periodic damage, and Daipai enchantment. |
+| 2 | Planned | Implement the status effect, final-level calculation, periodic damage, and Daipai enchantment. |
 | 3 | Pending | Implement the dual weapon/boots item, combat behavior, enchantment compatibility, and wearer bonuses. |
 | 4 | Pending | Implement the hostile paper-standee entity, AI, spawning, spawn egg, drops, and client billboard rendering. |
 | 5 | Pending | Complete Big Sweaty Foot/Daipai/Yujie interactions, placeholders, final resource policy, and BGM behavior. |
@@ -52,11 +52,11 @@ See: `.planning/PROJECT.md` (updated 2026-06-06)
 
 - Existing codebase map is available under `.planning/codebase/`.
 - Phase 1 replaced the Fabric example metadata/mixin scaffolding and added shared registry plus client/datagen anchors.
-- The next GSD command should start Phase 2 context gathering for Daipai effect, level calculation, periodic damage, and Daipai enchantment.
+- Phase 2 context and plan artifacts are ready. The next GSD command should execute Phase 2's Daipai effect, final-level calculation, periodic damage, and Daipai enchantment plans.
 
 ## Next Step
 
-Run `$gsd-discuss-phase 2` to gather implementation context for Phase 2, or `$gsd-plan-phase 2` to plan directly.
+Run `$gsd-execute-phase 2` to implement the Phase 2 plans.
 
 ---
 *State initialized: 2026-06-06*

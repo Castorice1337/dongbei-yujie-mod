@@ -9,8 +9,8 @@
 | Phase | Name | Goal | Requirements |
 |-------|------|------|--------------|
 | 1 | Project Foundation and Registries | Replace example-mod scaffolding with real mod identity and registry/resource structure. | FOUND-01 through FOUND-04 |
-| 2 | Daipai Core System | Implement the status effect, final-level calculation, periodic damage, and Daipai enchantment. | DAIP-01 through DAIP-05, ENCH-01 through ENCH-04 |
-| 3 | Big Sweaty Foot Item | Implement the dual weapon/boots item, combat behavior, enchantment compatibility, and wearer bonuses. | FOOT-01 through FOOT-07 |
+| 2 | Daipai Core System (Complete) | Implement the status effect, final-level calculation, periodic damage, and Daipai enchantment. | DAIP-01 through DAIP-05, ENCH-01 through ENCH-04 |
+| 3 | Big Sweaty Foot Item (Planned) | Implement the dual weapon/boots item, combat behavior, enchantment compatibility, and wearer bonuses. | FOOT-01 through FOOT-07 |
 | 4 | Dongbei Yujie Entity | Implement the hostile paper-standee entity, AI, spawning, spawn egg, drops, and client billboard rendering. | YUJI-01 through YUJI-07 |
 | 5 | Linked Behavior and Resources | Complete Big Sweaty Foot/Daipai/Yujie interactions, placeholders, final resource policy, and BGM behavior. | LINK-01 through LINK-04, RES-01 through RES-04 |
 

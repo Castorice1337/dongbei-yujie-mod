@@ -4,5 +4,50 @@
       "dongbeiyujie:big_sweaty_foot_hit"
     ],
     "subtitle": "subtitles.dongbeiyujie.big_sweaty_foot_hit"
+  },
+  "yujie_spawn": {
+    "sounds": [
+      "dongbeiyujie:yujie_spawn"
+    ],
+    "subtitle": "subtitles.dongbeiyujie.yujie_spawn"
+  },
+  "yujie_idle": {
+    "sounds": [
+      "dongbeiyujie:yujie_idle"
+    ],
+    "subtitle": "subtitles.dongbeiyujie.yujie_idle"
+  },
+  "yujie_attack": {
+    "sounds": [
+      "dongbeiyujie:yujie_attack"
+    ],
+    "subtitle": "subtitles.dongbeiyujie.yujie_attack"
+  },
+  "yujie_hurt": {
+    "sounds": [
+      "dongbeiyujie:yujie_hurt"
+    ],
+    "subtitle": "subtitles.dongbeiyujie.yujie_hurt"
+  },
+  "yujie_death": {
+    "sounds": [
+      "dongbeiyujie:yujie_death"
+    ],
+    "subtitle": "subtitles.dongbeiyujie.yujie_death"
+  },
+  "yujie_bgm": {
+    "sounds": [
+      {
+        "name": "dongbeiyujie:yujie_bgm",
+        "stream": true
+      }
+    ],
+    "subtitle": "subtitles.dongbeiyujie.yujie_bgm"
+  },
+  "daipai_trigger": {
+    "sounds": [
+      "dongbeiyujie:daipai_trigger"
+    ],
+    "subtitle": "subtitles.dongbeiyujie.daipai_trigger"
   }
 }

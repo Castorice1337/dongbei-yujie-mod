@@ -26,8 +26,10 @@ Players should encounter Dongbei Yujie at night, fight or flee from her Daipai p
 
 ### Active
 
-- [ ] Register placeholder sound events and later replace placeholders with public-release-safe resources.
-- [ ] Implement BGM behavior in the resource phase: play while at least one Yujie exists, stop when none remain, and never stack multiple copies.
+- [ ] Define v1.1 requirements with `$gsd-new-milestone`.
+- [ ] Decide whether to restore or formally retire Big Sweaty Foot hit-to-Daipai behavior.
+- [ ] Decide whether to replace vanilla Yujie spawning with exact controlled near-player spawning.
+- [ ] Add resource provenance documentation before public release.
 
 ### Out of Scope
 
@@ -62,8 +64,8 @@ Players should encounter Dongbei Yujie at night, fight or flee from her Daipai p
 | Daipai damage can affect players | The user wants the effect to be a dangerous joke mechanic, not only a mob-control aura | - Completed |
 | Daipai excludes the source and Dongbei Yujie entities | Prevents self-damage and Yujie-vs-Yujie attrition from undermining spawning and encounters | - Completed |
 | Big Sweaty Foot hit messages are attacker-only | Preserves the joke while preventing public chat spam | - Completed |
-| BGM plays while any Yujie exists and does not stack | Gives Yujie presence without all-world looping or multi-entity audio chaos | - Pending |
-| Final resources are handled last and must be licensed/original/user-supplied | Keeps the mod public-release-safe | - Pending |
+| BGM plays while any Yujie exists and does not stack | Gives Yujie presence without all-world looping or multi-entity audio chaos | - Completed |
+| Final resources are handled last and must be licensed/original/user-supplied | Keeps the mod public-release-safe | - Completed with provenance follow-up |
 | No full config system in v1 | Constants are enough for the first complete loop; config can be a later milestone | - Completed |
 | Hostility AI excludes players and other Yujies | Keeps player encounters focused on the Daipai aura pressure and avoids Yujie-vs-Yujie fights | - Completed |
 | Dongbei Yujie has default Daipai status effect | Ensures she naturally emits the Daipai aura at level III | - Completed |
@@ -79,6 +81,12 @@ This document evolves at phase transitions and milestone boundaries.
 4. Decisions to log? Add to Key Decisions.
 5. "What This Is" still accurate? Update if drifted.
 
+**Current State**
+
+v1.0 is archived as shipped with accepted gaps. The playable loop includes Dongbei Yujie encounters, Daipai pressure, Big Sweaty Foot gear, resource audio/visuals, non-stacking BGM, and the Daipai HUD indicator.
+
+**Accepted v1.0 gaps:** Big Sweaty Foot hits do not directly apply Daipai, exact 24-block controlled Yujie spawning is deferred, and resource provenance documentation remains future work.
+
 **After each milestone** (via `$gsd-complete-milestone`):
 1. Full review of all sections.
 2. Core Value check: still the right priority?
@@ -86,4 +94,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state.
 
 ---
-*Last updated: 2026-06-06 after Phase 4*
+*Last updated: 2026-06-06 after v1.0 archive*

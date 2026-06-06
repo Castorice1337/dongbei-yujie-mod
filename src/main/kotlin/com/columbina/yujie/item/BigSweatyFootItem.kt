@@ -1,6 +1,7 @@
 package com.columbina.yujie.item
 
 import com.columbina.yujie.registry.DongbeiYujieEnchantments
+import com.columbina.yujie.registry.DongbeiYujieParticles
 import com.columbina.yujie.registry.DongbeiYujieSounds
 import net.minecraft.component.type.TooltipDisplayComponent
 import net.minecraft.enchantment.EnchantmentHelper
@@ -34,17 +35,20 @@ class BigSweatyFootItem(settings: Settings) : Item(settings) {
 	override fun postHit(stack: ItemStack, target: LivingEntity, attacker: LivingEntity) {
 		target.playSound(DongbeiYujieSounds.BIG_SWEATY_FOOT_HIT, 1.0f, 1.0f)
 
-		// FOOT-04: Big Sweaty Foot can apply the Daipai effect to hit targets
-		target.addStatusEffect(
-			net.minecraft.entity.effect.StatusEffectInstance(
-				com.columbina.yujie.registry.DongbeiYujieEffects.DAIPAI_ENTRY,
-				100, // 5 seconds (100 ticks)
-				0,   // Daipai I (amplifier 0)
-				false,
-				true,
-				true
+		if (!target.entityWorld.isClient && target.entityWorld is net.minecraft.server.world.ServerWorld) {
+			val serverWorld = target.entityWorld as net.minecraft.server.world.ServerWorld
+			serverWorld.spawnParticles(
+				DongbeiYujieParticles.FOOT_HIT,
+				target.x,
+				target.y + target.height * 0.75,
+				target.z,
+				1,
+				0.0,
+				0.0,
+				0.0,
+				0.0
 			)
-		)
+		}
 
 		if (attacker is PlayerEntity) {
 			val key = HIT_MESSAGE_KEYS[target.random.nextInt(HIT_MESSAGE_KEYS.size)]

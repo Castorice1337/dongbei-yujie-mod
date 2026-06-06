@@ -22,7 +22,7 @@ class DongbeiYujieRenderState : EntityRenderState() {
 
 class DongbeiYujieEntityRenderer(ctx: EntityRendererFactory.Context) : EntityRenderer<DongbeiYujieEntity, DongbeiYujieRenderState>(ctx) {
 
-    private val texture = DongbeiYujieIds.id("textures/entity/dongbeiyujie.png")
+    private val texture = DongbeiYujieIds.id("textures/entity/dongbei_yujie.png")
 
     override fun createRenderState(): DongbeiYujieRenderState {
         return DongbeiYujieRenderState()

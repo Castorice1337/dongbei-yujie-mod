@@ -1,9 +1,12 @@
 package com.columbina.yujie.effect
 
+import com.columbina.yujie.registry.DongbeiYujieParticles
+import com.columbina.yujie.registry.DongbeiYujieSounds
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectCategory
 import net.minecraft.entity.player.PlayerEntity
+import net.minecraft.sound.SoundCategory
 import net.minecraft.server.world.ServerWorld
 
 /**
@@ -71,19 +74,29 @@ class DaipaiStatusEffect : StatusEffect(
 			val radiusSquared = radius * radius
 			for (target in targets) {
 				if (entity.squaredDistanceTo(target) <= radiusSquared) {
-					target.damage(world, damageSource, damageAmount)
-					
-					// Particle feedback on hit: sculk charge and large smoke
-					world.spawnParticles(
-						net.minecraft.particle.SculkChargeParticleEffect(0f),
-						target.x, target.y + target.height / 2.0, target.z,
-						15, 0.4, 0.4, 0.4, 0.05
-					)
-					world.spawnParticles(
-						net.minecraft.particle.ParticleTypes.LARGE_SMOKE,
-						target.x, target.y + target.height / 2.0, target.z,
-						10, 0.4, 0.4, 0.4, 0.02
-					)
+					if (target.damage(world, damageSource, damageAmount)) {
+						world.spawnParticles(
+							DongbeiYujieParticles.FOOT_HIT,
+							target.x,
+							target.y + target.height * 0.75,
+							target.z,
+							1,
+							0.0,
+							0.0,
+							0.0,
+							0.0
+						)
+						world.playSound(
+							null,
+							target.x,
+							target.y,
+							target.z,
+							DongbeiYujieSounds.DAIPAI_TRIGGER,
+							SoundCategory.HOSTILE,
+							1.0f,
+							1.0f
+						)
+					}
 				}
 			}
 

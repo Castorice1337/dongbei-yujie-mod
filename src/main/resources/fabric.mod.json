@@ -21,6 +21,12 @@
 				"value": "com.columbina.yujie.DongbeiYujie",
 				"adapter": "kotlin"
 			}
+		],
+		"client": [
+			{
+				"value": "com.columbina.yujie.client.DongbeiYujieClient",
+				"adapter": "kotlin"
+			}
 		]
 	},
 	"mixins": [
